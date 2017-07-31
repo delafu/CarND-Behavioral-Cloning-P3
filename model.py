@@ -26,6 +26,7 @@ for line in lines:
     filename = source_path.split('\\')[-1]
     current_path = '../driving-data/IMG/' + filename
     image = cv2.imread(current_path)
+    image = image [55:160, 0:320]
     image = cv2.resize(image,(200,66))
     imgRGB = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
     images.append(imgRGB)
@@ -34,6 +35,7 @@ for line in lines:
     filename = source_path_left.split('\\')[-1]    
     current_path = '../driving-data/IMG/' + filename
     image = cv2.imread(current_path)
+    image = image [55:160, 0:320]
     image = cv2.resize(image,(200,66))
     imgRGB = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
     images.append(imgRGB)
@@ -42,6 +44,7 @@ for line in lines:
     filename = source_path_right.split('\\')[-1]    
     current_path = '../driving-data/IMG/' + filename
     image = cv2.imread(current_path)
+    image = image [55:160, 0:320]
     image = cv2.resize(image,(200,66))
     imgRGB = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
     images.append(imgRGB)
@@ -63,6 +66,7 @@ model.add(Convolution2D(48,5,5, subsample=(2, 2), activation="relu"))
 model.add(Convolution2D(64,3,3, subsample=(1, 1), activation="relu"))
 model.add(Convolution2D(64,3,3, subsample=(1, 1), activation="relu"))
 model.add(Flatten())
+model.add(Dropout(0.75))
 model.add(Dense(100, activation="relu"))
 model.add(Dense(50, activation="relu"))
 model.add(Dense(10, activation="relu"))
