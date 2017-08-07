@@ -16,11 +16,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./images/cnn-architecture.jpg "Model Visualization"
 [image2]: ./images/center_2017_07_12_08_26_19_702.jpg "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image3]: ./images/center_2017_07_12_08_29_11_488.jpg "Recovery Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -59,7 +55,7 @@ I´ve done tests with the LeNet acrhitecture too. But I decided to use the Nvidi
 
 The model consists of 5 convolutional layers. The first three layers use a 5x5 kernel and a stride of 2x2. The output depth of these three layers are 24, 36 and 48. The last two layers use a 3x3 kernel and a stride of 1x1. The ouput depth of these two layers is 6.
 
-Next I use a Flatten layer and I apply a Droput layer with a value of 0.8 to try to reduce overfiting.
+Next I use a Flatten layer and I apply a Droput layer with a value of 0.9 to try to reduce overfiting. I´ve found that when I decrease the Dropout value the car drives worse.
 
 The next three are fully connected layers with 100, 50, 10 units and finally the output with one unit because we are in a regression problem.
 
@@ -93,8 +89,6 @@ First In begin with only one fully connected layer like in the lesson and then I
 
 The LeNet model worked well but did not work well all the laps and I decided to try the Nvidia model. 
 
-The model has not too much overfiting but I inserted a Dropout layer after the Flatten one.
-
 I have to increase the correction to 0.3 and -0.3 from 0.2 because the car went out of the road.
 
 At the end of the process, the vehicle is able to drive autonomously around the track one without leaving the road.
@@ -127,4 +121,6 @@ I randomly shuffled the data set and put 20% of the data into a validation set.
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
-The number epochs 
+I´ve found that a good number of epochs is 5. Sometimes when I try 3 th car goes out off the road.
+
+I think that the val_loss in this exercise is not very important because I´ve done some test that obtained a a low val_loss and the car worked worse than in another test with a greater val_loss.
