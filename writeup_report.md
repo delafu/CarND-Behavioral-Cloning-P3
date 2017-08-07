@@ -14,9 +14,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./images/cnn-architecture.jpg "Model Visualization"
-[image2]: ./images/center_2017_07_12_08_26_19_702.jpg "Grayscaling"
-[image3]: ./images/center_2017_07_12_08_29_11_488.jpg "Recovery Image"
+[image1]: ./images/cnn-architecture.png "Model Visualization"
+[image2]: ./images/center_2017_07_12_08_26_19_702.jpg "Center"
+[image3]: ./images/center_2017_07_12_08_29_11_488.jpg "Right"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -113,7 +113,7 @@ I didn´t take samples on the track two. I rode the car several times but I was 
 
 To augment the data set, I also flipped images and angles and I think It´s a very good idea to get more left curves. I did some tests not augmenting the images with steering angle of 0 but I got better results augmenting them
 
-I´m cropping all the images to only train the network with the lower side of the images.
+I´m cropping all the images to only train the network with the lower side of the images (model.py lines 29-30 56-57)
 
 Although I´ve implmented the generator I´m not using it in my last models because I have a GTX 1080 graphic card and 32 GB RAM computer and the generator slows down the training velocity drastically.
 
