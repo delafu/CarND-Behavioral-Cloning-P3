@@ -14,8 +14,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
+[image1]: ./images/cnn-architecture.jpg "Model Visualization"
+[image2]: ./images/center_2017_07_12_08_26_19_702.jpg "Grayscaling"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
@@ -99,26 +99,25 @@ I have to increase the correction to 0.3 and -0.3 from 0.2 because the car went 
 
 At the end of the process, the vehicle is able to drive autonomously around the track one without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 The final model architecture (model.py lines 119-131) is the Nvidia architecture plus one Dropout layer.
 
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
 ![alt text][image2]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I recorded multiple laps that I did with the sim. I tried to drive the most of the laps to drive in the center of the road and some in the left and in the right of the road but it was very difficult.
 
 ![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+
 
 I didn´t take samples on the track two. I rode the car several times but I was not able to finish two laps and record them.
 
-To augment the data set, I also flipped images and angles and I think It´s a very good idea to get more left curves. I don´t augment the images with steering angle of 0.
+To augment the data set, I also flipped images and angles and I think It´s a very good idea to get more left curves. I did some tests not augmenting the images with steering angle of 0 but I got better results augmenting them
 
 I´m cropping all the images to only train the network with the lower side of the images.
 
@@ -126,4 +125,6 @@ Although I´ve implmented the generator I´m not using it in my last models beca
 
 I randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. I used I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+
+The number epochs 
